@@ -1,6 +1,7 @@
-let a=10;
-let b=0;
-setTimeout(()=>{
-	b=20;
-}, 2000);
-console.log(a+b);
+const http = require('http');
+const data = require('./data');
+http.createServer((req, resp)=>{
+	resp.writeHead(200, {'Content-Type':'application\json'});
+	resp.write(JSON.stringify(data));
+	resp.end();
+}).listen(5000);
